@@ -10,14 +10,15 @@ Then, research the question to expand on your answer. Even if you feel you have 
 
 Your answer: I have never had to add a foreign key. THe primary key is added and the foreign key is on the Cohort Model. 
 
-Researched answer: In Rails the column is used to hold the foreign key om a model is the name with an "_id" added to the end. The foreign key is a column in a relational db that makes a link between two tables by referencing the primary key of the other table. Create a relationship between Cohort and students by updating the class, Class Student belongs_to :cohort.
+Researched answer: If you forget to add the foreign key all you have to do is migrate the database. Its name should be student_id. The key will be on the student model which belongs to Cohort.
 
 2. Which RESTful routes must always be passed params? Why?
 
 Your answer: The RESTful routes that must always be passed params are the , view, update and destroy. If you don't have params on edit for example there is now way to prevent another user from getting the correct info updated. Same with destroy. You want to ensure you have strong params to make sure you are making correct data changes.
 
-Researched answer: Rest is representational state transfer. Http is stateless. Developers need to input code to let apps know how to react. ret brings a level of standard routing path. The RESTFUl routes that must always be passed params are Show, Create, Update, edit, and destroy.
+Researched answer: The RESTFUl routes that must always be passed params are Show, Create, update, and destroy. The params for show allow us to show a model by index is id will come from params.The create needs params because it submits input to database.The update also requires params update via the id. The destroy route also needs params to find the id.
 
+ Rest is representational state transfer. Http is stateless. Developers need to input code to let apps know how to react. rest brings a level of standard routing path. 
 
 
 3. Name three rails generator commands. What is created by each?
@@ -32,7 +33,7 @@ action: "GET" location: /students> Index method finds the index of the object we
 
 action: "POST" location: /students  Create method makes a new instance of the model as an object. 
 
-action: "GET" location: /students/new This uses the new method to makes a new student
+action: "GET" location: /students/new This uses the new method to display a form to the user. Users can add data into dc 
 
 action: "GET" location: /students/2     The index method to get the student at id #2 
 

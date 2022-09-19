@@ -40,7 +40,6 @@ describe("eachPerson", () => {
 // Take each object and capitalize the first letter of their name and make a story out of each object in the list
 // Output: An array with a sentence about each person with their name capitalized.
 
-
 // const eachPerson = (array) => { //junk code did not work at all returned empty array.
 //   let newArr= []
 //   for(i = 0 ; i > array.length; i ++){
@@ -57,7 +56,7 @@ const people = [
     return arr.map(person => person.name                                //map over the array and split the letters
       .split(' ')
       .map(sepName => sepName.charAt(0).toUpperCase() + sepName.slice(1)) //then using another map use charAt to uppercase 1st letter then use slice to put the cap letter back into the string
-      .join(' ') + ` is ${person.occupation}.`      //join the string back and concatentate with the occupation
+      .join(' ') + ` is ${person.occupation}.`      //join the string back and concatenate with the occupation
       )
   }
 
@@ -108,13 +107,17 @@ describe("cuber", () => {
 
 const cubeAndSum2 = [0, 5, 10]
 const cubeAndSum1 = [2, 3, 4]
-
-const cuber = (arr) => {
-  let sumArr = 0                              //declare sum to zero
-  for (let i = 0; i < arr.length; i++ ){      //iterate thru array
-      ( sumArr += arr[i]**3)                  //add up nums in array then cube
-  }   return sumArr                           //return the sum cubed
-}
-// const cuber = (arr) => {                   /?this was my 1st attempt I got it to m
-//     return arr.map(value => ((value**3).reduce()))     //couldnt chain in the sum.
+//this was the first way I got it to pass. was having blocker on the map the reduce wouldn't work until added function inside it.
+// const cuber = (arr) => {
+//   let sumArr = 0                              //declare sum to zero
+//   for (let i = 0; i < arr.length; i++ ){      //iterate thru array
+//       ( sumArr += arr[i]**3)                  //add up nums in array then cube
+//   }   return sumArr                           //return the sum cubed
 // }
+
+    const cuber = (arr) => {  
+        //  declare a variable to map               
+        let x = arr.map(value => (value**3))     //this finally works!
+      //  return x and reduce it to get sum using the method 
+        return x.reduce((x, y)=> x+y)      
+    }
